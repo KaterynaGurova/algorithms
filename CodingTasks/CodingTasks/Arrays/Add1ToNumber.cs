@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CodingTasks.Arrays
 {
     public class Add1ToNumber
     {
+        // My implementation
         public List<int> plusOne(List<int> input)
         {
             var j = 0;
@@ -24,42 +21,38 @@ namespace CodingTasks.Arrays
                 A.Add(input[i]);
             }
 
-            var transferable = false;
+            int carry = 1;
             for (var i = A.Count - 1; i >= 0; i--)
             {
-                if (transferable)
-                {
-                    if (A[i] < 9)
-                    {
-                        transferable = false;
-                        A[i]++;
-                        break;
-                    }
-
-                    A[i] = 0;
-                }
-                else
-                {
-                    if (A[i] < 9)
-                    {
-                        A[i]++;
-                        break;
-                    }
-
-                    A[i] = 0;
-                    transferable = true;
-                }
+                var temp = A[i] + carry;
+                carry = temp/10;
+                var digit = temp%10;
+                A[i] = digit;
             }
 
             var output = new List<int>();
-            if (transferable)
+            if (carry == 1)
             {
                 output.Add(1);
             }
 
             output.AddRange(A);
-
             return output;
+        }
+
+        public List<int> plusOne_(List<int> A)
+        {
+            List<int> result = new List<int>();
+            int carry = 1;
+            for (int reverseIndex = A.Count - 1; reverseIndex >= 0; reverseIndex--)
+            {
+                int sum = A[reverseIndex] + carry;
+                carry = sum / 10;
+                result.Insert(0, sum % 10);
+            }
+            result.Insert(0, carry);
+            result.RemoveRange(0, result.FindIndex(n => n != 0));
+            return result;
         }
     }
 }
