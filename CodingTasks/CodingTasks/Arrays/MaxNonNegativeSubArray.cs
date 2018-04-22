@@ -17,19 +17,6 @@ namespace CodingTasks.Arrays
             {
                 if (A[i] < 0)
                 {
-                    if (tempItemsCount == 0)
-                    {
-                        continue;
-                    }
-
-                    if (tempSum > currMax
-                        || (tempSum == currMax && currMaxItemsCount <= tempItemsCount))
-                    {
-                        currMax = tempSum;
-                        currMaxArr = tempArr;
-                        currMaxItemsCount = tempItemsCount;
-                    }
-
                     tempItemsCount = 0;
                     tempArr = new List<int>();
                     tempSum = 0;
@@ -40,14 +27,13 @@ namespace CodingTasks.Arrays
                     tempArr.Add(A[i]);
                     tempItemsCount++;
                 }
-            }
 
-            if (tempItemsCount > 0)
-            {
                 if (tempSum > currMax
-                       || (tempSum == currMax && currMaxItemsCount <= tempItemsCount))
+                    || (tempSum == currMax && currMaxItemsCount <= tempItemsCount))
                 {
+                    currMax = tempSum;
                     currMaxArr = tempArr;
+                    currMaxItemsCount = tempItemsCount;
                 }
             }
 
