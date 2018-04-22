@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Arrays\Add1ToNumberTests.cs" />
+    <Compile Include="Arrays\MaxNonNegativeSubArrayTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
