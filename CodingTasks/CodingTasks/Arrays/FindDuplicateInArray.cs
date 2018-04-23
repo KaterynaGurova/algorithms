@@ -17,8 +17,6 @@ namespace CodingTasks.Arrays
                 existing[A[i]]++;
             }
 
-            A.Sort();
-
             var max = 0;
             var maxNumber = -1;
             foreach (var i in existing)

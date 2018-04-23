@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="Arrays\Add1ToNumberTests.cs" />
     <Compile Include="Arrays\FindDuplicateInArrayTests.cs" />
+    <Compile Include="Arrays\LargestNumberTests.cs" />
     <Compile Include="Arrays\MaxDistanceTests.cs" />
     <Compile Include="Arrays\MaxNonNegativeSubArrayTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
