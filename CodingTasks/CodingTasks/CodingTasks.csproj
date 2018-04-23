@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Arrays\Add1ToNumber.cs" />
+    <Compile Include="Arrays\FindDuplicateInArray.cs" />
+    <Compile Include="Arrays\MaxDistance.cs" />
     <Compile Include="Arrays\MaxNonNegativeSubArray.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
