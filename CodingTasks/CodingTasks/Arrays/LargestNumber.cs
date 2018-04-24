@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CodingTasks.Arrays
 {
@@ -11,95 +9,111 @@ namespace CodingTasks.Arrays
     {
         public string largestNumber(List<int> A)
         {
-            var arr = new List<char[]>();
-            var ptrs = new List<int>();
-            foreach (var a in A)
+            var zeroes = true;
+            for (var i = 0; i < A.Count; i++)
             {
-                arr.Add(a.ToString().ToCharArray());
-                ptrs.Add(0);
-            }
-
-            //Max array count
-            var maxArrCount = int.MinValue;
-            for (var i = 0; i < arr.Count; i++)
-            {
-                if (arr[i].Count() > maxArrCount)
+                if (A[i] != 0)
                 {
-                    maxArrCount = arr[i].Count();
+                    zeroes = false;
                 }
             }
+            if (zeroes)
+                return "0";
 
-            // Sorting
-
-
-            while (ptrs.Count > 0)
+            var number = new StringBuilder();
+            while (A.Count > 0)
             {
-                var max = int.MinValue;
-                var prevPointer = -1;
-                for (var j = 0; j < arr.Count; j++)
+                var e = A[0];
+                for (var i = 0; i < A.Count; i++)
                 {
-                    if (ptrs[j] >= arr[j].Count())
+                    var number1 = e.ToString();
+                    var number2 = A[i].ToString();
+                    var a = Convert.ToInt64(number1 + number2);
+                    var b = Convert.ToInt64(number2 + number1);
+
+                    if (b > a)
                     {
-                        //zakonchilsya
-                    }
-
-                    if (arr[j][ptrs[j]] > max)
-                    {
-                        max = arr[ptrs[j]][i];
-                        indexX = ptrs[j];
-                    }
-                    else if (arr[j][ptrs[j]] == max)
-                    {
-
-                    }
-
-                    ptrs[j]++;
-                }
-            }
-
-
-
-
-
-
-            var tempMaxIndex = -1;
-            for (var i = 0; i < maxArrCount; i++)
-            {
-                var max = int.MinValue;
-                var indexX = -1;
-                var indexY = -1;
-                for (var j = 0; j < arr.Count; j++)
-                {
-                    if (arr[ptrs[j]].Count() < i)
-                    {
-                        if (arr[ptrs[j]][i] > max)
-                        {
-                            max = arr[ptrs[j]][i];
-                            indexX = ptrs[j];
-                        }
-                        else if (arr[j][i] == max)
-                        {
-                            
-                        }
+                        e = A[i];
                     }
                 }
 
-                tempMaxIndex = index;
+                number.Append(e.ToString());
+                A.Remove(e);
             }
 
-
-            //var sorted = new List<char[]>();
-            //for (int i = 0; i < arr.Count; i++)
-            //{
-            //    var max = int.MinValue;
-            //    for (int j = 0; j < arr[i].Count(); j++)
-            //    {
-            //        if (arr[i][j] > max && j == arr[i].Count() - 1)
-            //        {
-            //            max = arr[i][j];
-            //        }
-            //    }
-            //}
+            return number.ToString();
         }
+
+
+
+
+        //public string largestNumber(List<int> A)
+        //{
+        //    var arr = new List<char[]>();
+        //    var ptrs = new List<int>();
+        //    foreach (var a in A)
+        //    {
+        //        arr.Add(a.ToString().ToCharArray());
+        //        ptrs.Add(0);
+        //    }
+
+        //    var result = new List<string>();
+        //    while (arr.Count > 0)
+        //    {
+        //        var maxs = new List<int>();
+        //        var currMax = int.MinValue;
+        //        var wholeNums = new List<int>();
+        //        for (var i = 0; i < arr.Count; i++)
+        //        {
+        //            if (arr[i].Count() <= ptrs[i])
+        //            {
+        //                wholeNums.Add(i);
+        //            }
+        //            if (arr[i].Count() > ptrs[i] && (int)arr[i][ptrs[i]] > currMax)
+        //            {
+        //                currMax = (int)arr[i][ptrs[i]];
+        //            }
+        //        }
+        //        for (var i = 0; i < arr.Count; i++)
+        //        {
+        //            if (arr[i].Count() > ptrs[i] && arr[i][ptrs[i]] == currMax)
+        //            {
+        //                maxs.Add(i);
+        //            }
+        //        }
+
+        //        if (maxs.Count == wholeNums.Count)
+        //        {
+        //            for (int i = 0; i < wholeNums.Count; i++)
+        //            {
+        //                var index = maxs.First();
+        //                result.Add(arr[index].ToString());
+        //                arr.RemoveAt(index);
+        //                ptrs.RemoveAt(index);
+        //            }
+        //            wholeNums = new List<int>();
+        //        }
+
+        //        if (maxs.Count == 1)
+        //        {
+        //            var index = maxs.First();
+        //            result.Add(arr[index].ToString());
+        //            arr.RemoveAt(index);
+        //            ptrs.RemoveAt(index);
+        //            continue;
+        //        }
+
+        //        if (maxs.Count > 1)
+        //        {
+        //            for (var i = 0; i < arr.Count; i++)
+        //            {
+        //                if (maxs.Any(x => x == i)) ptrs[i]++;
+        //                else ptrs[i] = 0;
+        //            }
+        //        }
+        //    }
+
+        //    return string.Concat(result);
+        //}
     }
 }

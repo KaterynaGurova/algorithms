@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CodingTasks.Arrays;
+using FluentAssertions;
 using NUnit.Framework;
 
 namespace CodingTasks.Tests.Arrays
@@ -11,17 +12,18 @@ namespace CodingTasks.Tests.Arrays
     [TestFixture]
     public class LargestNumberTests
     {
-        [TestCase(new[] { 0, 0, 9, 9, 9 }, new[] { 1, 0, 0, 0 })]
-        public void Should_Pass_Cases(int[] input, int[] expected)
+        [TestCase(new[] { 0, 0, 0, 0, 0, 0 }, "0")]
+        [TestCase(new[] { 38, 3, 777, 26, 31, 3 }, "77738333126")]
+        public void Should_Pass_Cases(int[] input, string expected)
         {
             // Arrange
             var obj = new LargestNumber();
 
             // Act
-            var actual = obj.plusOne(input.ToList());
+            var actual = obj.largestNumber(input.ToList());
 
             // Assert
-            actual.Should().BeEquivalentTo(expected.ToList());
+            actual.Should().Be(expected);
         }
     }
 }
