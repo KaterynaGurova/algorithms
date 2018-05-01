@@ -48,6 +48,8 @@
     <Compile Include="Arrays\MaxNonNegativeSubArray.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stacks and Queues\RedundantBraces.cs" />
+    <Compile Include="Stacks and Queues\ReverseString.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
