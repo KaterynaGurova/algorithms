@@ -78,7 +78,9 @@
     <Compile Include="Arrays\FindDuplicateInArrayTests.cs" />
     <Compile Include="Arrays\LargestNumberTests.cs" />
     <Compile Include="Arrays\MaxDistanceTests.cs" />
+    <Compile Include="Arrays\MaximumUnsortedSubArrayTests.cs" />
     <Compile Include="Arrays\MaxNonNegativeSubArrayTests.cs" />
+    <Compile Include="Arrays\NobleIntegerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stacks and Queues\MinStackTests.cs" />
     <Compile Include="Stacks and Queues\NearestSmallerElementTests.cs" />

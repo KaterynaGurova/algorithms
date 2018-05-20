@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CodingTasks.Arrays
 {
@@ -29,6 +26,7 @@ namespace CodingTasks.Arrays
 
             var max = int.MinValue;
             var maxs = new int[A.Count];
+            //we are essentially looking at max index[j] for all j > i.
             for (var i = A.Count - 1; i >= 0; i--)
             {
                 if (map[i].Index > max)
@@ -39,27 +37,15 @@ namespace CodingTasks.Arrays
                 maxs[i] = max;
             }
 
-            var maxp = 0;
-            for (int y = 0; y < A.Count; y++)
+            var maxDistance = 0;
+            for (var y = 0; y < A.Count; y++)
             {
-                if (maxs[y] > maxp)
-                    maxp = maxs[y];
+                var d = maxs[y] - map[y].Index;
+                if (d > maxDistance)
+                    maxDistance = d;
             }
 
-
-            //var maxmax = 0;
-            //for (var j = 0; j < A.Count; j++)
-            //{
-            //    for (var k = j + 1; k < A.Count; k++)
-            //    {
-            //        if (map[k].Index - map[j].Index > maxmax)
-            //        {
-            //            maxmax = Math.Abs(map[j].Index - map[k].Index);
-            //        }
-            //    }
-            //}
-
-           return maxp;
+            return maxDistance;
         }
 
         private class Map
@@ -68,7 +54,7 @@ namespace CodingTasks.Arrays
             public int Value { get; set; }
         }
 
-        public int maximumGap_NotEfficient(List<int> A)
+        private int maximumGap_NotEfficient(List<int> A)
         {
             var maxDist = 0;
             if (A.Count == 1)

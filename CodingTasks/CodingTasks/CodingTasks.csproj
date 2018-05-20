@@ -45,7 +45,11 @@
     <Compile Include="Arrays\FindDuplicateInArray.cs" />
     <Compile Include="Arrays\LargestNumber.cs" />
     <Compile Include="Arrays\MaxDistance.cs" />
+    <Compile Include="Arrays\MaximumUnsortedSubArray.cs" />
     <Compile Include="Arrays\MaxNonNegativeSubArray.cs" />
+    <Compile Include="Arrays\NobleInteger.cs" />
+    <Compile Include="Arrays\TripletsWithSumBetweenGivenRange.cs" />
+    <Compile Include="Arrays\WaveArray.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stacks and Queues\EvaluateExpression.cs" />
